@@ -30,37 +30,7 @@ img_base64 = get_base64_img(MASKOT_FILENAME)
 bg_style = f"data:image/png;base64,{img_base64}" if img_base64 else ""
 
 # ==========================================
-# ⚡ BAGIAN 1: PEMBUKAAN (LOADING SCREEN) ⚡
-# ==========================================
-if "loading_done" not in st.session_state:
-    sound_url = "https://www.soundjay.com/buttons/sounds/button-30.mp3" 
-    
-    st.markdown(f"""
-        <div id="loading-screen" style="
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(135deg, #FFE000 0%, #FFCC00 100%);
-            z-index: 9999; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; color: #333; font-family: sans-serif;">
-            <div style="font-size: 100px; animation: flash 0.4s infinite alternate; margin-bottom: 20px;">⚡</div>
-            <h1 style="font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">PIKACHU ABIB! 😉 ✨</h1>
-            <p style="font-size: 20px; font-weight: bold; background: white; padding: 5px 15px; border-radius: 20px;">*KRINGGG!*</p>
-            <iframe src="{sound_url}" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-            <audio autoplay><source src="{sound_url}" type="audio/mp3"></audio>
-            <style>
-                @keyframes flash {{
-                    0% {{ opacity: 0.3; transform: scale(0.9); }}
-                    100% {{ opacity: 1; transform: scale(1.1); }}
-                }}
-            </style>
-        </div>
-        <script>
-            setTimeout(function(){{
-                document.getElementById('loading-screen').style.display = 'none';
-            }}, 3000);
-        </script>
-    """, unsafe_allow_html=True)
-    time.sleep(3)
-    st.session_state.loading_done = True
+# ⚡ st.session_state.loading_done = True
 
 # ==========================================
 # 🎨 BAGIAN 2: WALLPAPER GAMBAR PIKACU DI DALAM CHAT 🎨
